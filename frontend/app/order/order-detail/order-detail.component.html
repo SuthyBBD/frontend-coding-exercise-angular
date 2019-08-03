@@ -1,0 +1,16 @@
+<section id="orderDetails" *ngIf="order">
+  <div class="details-section">
+    <div class="row">
+      <div class="col-md-8">
+        <h2>{{order.customer}}</h2>
+      </div>
+      <div class="col-md-4">
+        <div class="order">
+          <h2 class="">{{order.requestedDeliveryDate}}</h2>
+          <h2 class="">{{order.currentLocation}}</h2>
+          <h2>{{order.lateReason}}</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

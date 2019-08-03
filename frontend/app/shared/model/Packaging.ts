@@ -1,0 +1,5 @@
+export enum Packaging {
+  HOTBOX = 'HOTBOX',
+  VENDOR_PROVIDED = 'VENDOR_PROVIDED',
+  COLDBOX = 'COLDBOX'
+}

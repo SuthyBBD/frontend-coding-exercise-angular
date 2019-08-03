@@ -1,0 +1,7 @@
+<section id="orderListing">
+  <div class="row">
+    <div class='col-md-3 col-xs-6' *ngFor='let order of orders'>
+      <app-order-list-item [order]="order"></app-order-list-item>
+    </div>
+  </div>
+</section>

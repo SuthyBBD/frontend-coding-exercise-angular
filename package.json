@@ -5,7 +5,7 @@
   "scripts": {
     "postinstall": "yarn generate 2000 313",
     "ng": "ng",
-    "start": "concurrently \"yarn server\" \"ng serve\" --names server,client --prefix-colors yellow,blue",
+    "start": "concurrently \"yarn server --proxy-config proxy.conf.json\" \"ng serve --proxy-config proxy.conf.json\" --names server,client --prefix-colors yellow,blue",
     "server": "nodemon --exec \"ts-node\" server/server.ts --ext ts,json --watch server",
     "test": "ng test",
     "lint": "ng lint",
@@ -24,6 +24,7 @@
     "@angular/router": "^5.0.0",
     "concurrently": "^3.5.1",
     "core-js": "^2.4.1",
+    "dayjs": "^1.8.15",
     "express": "^4.16.3",
     "moment": "^2.22.1",
     "rxjs": "^5.5.2",
