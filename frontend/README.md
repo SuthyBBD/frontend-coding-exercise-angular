@@ -18,6 +18,13 @@ but due to inconsistent dates I could not do this and opted to sort dates from n
 makes sense for delivered orders but for scheduled orders it would have been better to sort from closest 
 to furthest from current date
 
+5.) for amounts, I have rounded them to make sure in a real situation that these are precise to 2 decimal
+places, however, this is only what I expect the user to see and the real transactions/invoices would
+include the correct amount with all decimal places
+
+6.) because I have not worked with Jest but would like to in the future, I have not attempted to include it
+as this will just be me following a tutorial and applying those tests to my application.
+
 Suggestions:
 
 Use dates that make sense. There is a requested delivery date of 2018-06-01 which is in the future 
