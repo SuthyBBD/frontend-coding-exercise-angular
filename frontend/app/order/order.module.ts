@@ -8,7 +8,7 @@ import {RouterModule} from '@angular/router';
 import {OrderComponent} from './order.component';
 import {orderRoutes} from './order.routes';
 import {OrderDetailComponent} from './order-detail/order-detail.component';
-import {MapModule} from '../shared/map/map.module';
+import {MapModule} from '../map/map.module';
 
 
 

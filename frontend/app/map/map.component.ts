@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {LocationCoordinates} from '../model/LocationCoordinates';
+import {LocationCoordinates} from '../shared/model/LocationCoordinates';
 
 @Component({
   selector: 'app-map',
