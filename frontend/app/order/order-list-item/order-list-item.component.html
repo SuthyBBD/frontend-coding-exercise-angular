@@ -1,12 +1,14 @@
-<a routerLink="/orders/{{order.id}}" routerLinkActive="active">
-  <div class="card order-card">
-
+<div routerLink="/orders/{{order.id}}">
+  <div class="card cp-card">
     <div class="card-block">
-      <h6 class="card-title">{{order.customer}}</h6>
-        <br><br>
-        <h6 class="card-subtitle">{{order.vendor}} &#183;</h6>
-        <p class="card-text">£{{order.price.total}} &#183; +£{{order.price.vatAmount}} VAT</p>
+      <h3 class="card-title">Order {{order.id}}</h3>
+      <h3 class="card-text" *ngIf="order.deliveredAt">Order Delivered on {{order.deliveredAt | date:'fullDate'}} at {{order.deliveredAt | date:'shortTime'}}</h3>
+      <h3 class="card-text" *ngIf="!order.deliveredAt">Order Scheduled for {{order.requestedDeliveryDate | date:'fullDate'}} at {{order.requestedDeliveryDate | date:'shortTime'}}</h3>
+      <br>
+      <h3 class="card-text">{{order.customer}}</h3>
+      <br>
+      <h3 class="card-price">£{{roundedTotal}}</h3>
     </div>
   </div>
-</a>
-
+</div>
+<br>

@@ -3,6 +3,7 @@ import {PaymentType} from '../../shared/model/PaymentType';
 import {ServingStyle} from '../../shared/model/ServingStyle';
 import {Packaging} from '../../shared/model/Packaging';
 import {LocationCoordinates} from '../../shared/model/LocationCoordinates';
+import {LateReason} from '../../shared/model/LateReason';
 
 export interface Order {
   id: number;
@@ -17,7 +18,7 @@ export interface Order {
   servingStyle: ServingStyle;
   deliveredAt: string;
   delayMinutes: number;
-  lateReason: string;
+  lateReason: LateReason;
   packaging: Packaging;
   driverName: string;
   deliveryLocation: LocationCoordinates;

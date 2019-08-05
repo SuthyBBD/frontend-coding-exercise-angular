@@ -1,17 +1,15 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-
-
 import {AppComponent} from './app.component';
 import {AppRouterModule} from './app.router';
-import {HomepageComponent} from './homepage/homepage.component';
 import {OrderModule} from './order/order.module';
+import {HeaderComponent} from './header/header.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomepageComponent
+    HeaderComponent
   ],
   imports: [
     OrderModule,

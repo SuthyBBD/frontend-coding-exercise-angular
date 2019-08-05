@@ -11,6 +11,8 @@ import {OrderResponse} from '../model/OrderResponse';
 export class OrderListComponent implements OnInit {
 
   orders: Order[];
+  page: number;
+  pages: number;
 
   constructor(private orderService: OrderService) {
   }
@@ -20,7 +22,30 @@ export class OrderListComponent implements OnInit {
       (orderResponse: OrderResponse) => {
         this.orders = orderResponse.items;
         console.log(this.orders);
+        this.page = 1;
+        this.pages = orderResponse.total / orderResponse.pageSize;
       });
 
   }
+
+  prev() {
+    if (this.page > 1) {
+      this.page -= 1;
+      this.orderService.getOrders(this.page + '').subscribe(
+        (orderResponse: OrderResponse) => {
+          this.orders = orderResponse.items;
+        });
+    }
+  }
+
+  next() {
+    if (this.page < this.pages) {
+      this.page += 1;
+      this.orderService.getOrders(this.page + '').subscribe(
+        (orderResponse: OrderResponse) => {
+          this.orders = orderResponse.items;
+        });
+    }
+  }
+
 }

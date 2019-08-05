@@ -1,0 +1,54 @@
+@import 'frontend/styles/_variables.scss';
+
+
+.navbar {
+  padding: 20px;
+  margin-bottom: 40px;
+  background-color: $main-color;
+
+
+  .cp-search {
+    height: 50px;
+    width: 300px;
+  }
+
+
+  .navbar-brand {
+    margin-right: 30px;
+    font-size: 30px;
+    letter-spacing: 1px;
+    color: $main-text-color;
+    font-weight: 700;
+  }
+
+  .navbar-content {
+    margin-right: 60px;
+  }
+
+
+  .nav-item {
+    font-size: 14px;
+    display: inline-block;
+  }
+
+
+  .btn-cp-search {
+    border: 2px solid !important;
+    border-color: $main-text-color;
+    color: $main-text-color;
+
+
+    &:hover, &:focus, &:active {
+      background-color: grey;
+      box-shadow: none;
+    }
+  }
+
+  .dropdown-item {
+    font-size: 14px;
+
+    &:active, &:focus {
+      background-color: $main-color;
+    }
+  }
+}

@@ -2,7 +2,16 @@ import * as express from 'express';
 
 const app = express();
 
+const dayjs = require('dayjs');
+
 const orders = require('./data/orders.json');
+
+orders.sort(function (a, b) {
+  const date1 = dayjs(a.requestedDeliveryDate);
+  const date2 = dayjs(b.requestedDeliveryDate);
+  return date1 - date2;
+
+}).reverse();
 
 // Enable CORS
 app.use(function (req, res, next) {

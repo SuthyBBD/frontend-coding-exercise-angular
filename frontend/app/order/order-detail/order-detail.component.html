@@ -1,16 +1,52 @@
 <section id="orderDetails" *ngIf="order">
   <div class="details-section">
     <div class="row">
-      <div class="col-md-8">
-        <h2>{{order.customer}}</h2>
-      </div>
-      <div class="col-md-4">
-        <div class="order">
-          <h2 class="">{{order.requestedDeliveryDate}}</h2>
-          <h2 class="">{{order.currentLocation}}</h2>
-          <h2>{{order.lateReason}}</h2>
+      <div class="col-md-6">
+        <h3>Order {{order.id}}</h3>
+        <hr>
+        <h3 *ngIf="order.deliveredAt">Completed on {{order.deliveredAt | date:"fullDate"}} at {{order.deliveredAt |
+          date:"shortTime"}}</h3>
+        <h3 *ngIf="!order.deliveredAt">Scheduled for {{order.requestedDeliveryDate | date:"fullDate"}} at
+          {{order.requestedDeliveryDate | date:"shortTime"}}</h3>
+        <h4>{{servingStyle}} in {{packaging}} packaging</h4>
+        <h4>for {{order.headcount}} people</h4>
+        <h4>from {{order.vendor}} to {{order.customer}}</h4>
+        <div>
+          <div class="order">
+            <hr>
+            <app-map [currentLocation]="order.currentLocation"
+                     [deliveryLocation]="order.deliveryLocation"
+                     [vendorLocation]="order.vendorLocation"
+                     [deliveredAt]="order.deliveredAt"></app-map>
+            <hr>
+            <h3 *ngIf="!order.deliveredAt">{{order.driverName}} will deliver this order</h3>
+            <h3 *ngIf="!order.lateReason">No delay has been reported for this order</h3>
+            <h3 id="lateReason" class="" *ngIf="order.lateReason">A delay of
+              {{order.delayMinutes}} minutes has been reported due to {{lateReason}}</h3>
+          </div>
         </div>
+      </div>
+
+      <div class="col-md-6">
+        <h3>Price breakdown for {{paymentType}} payment</h3>
+        <hr>
+        <h4 *ngIf="order.price.delivery">Delivery: £{{order.price.delivery}}</h4>
+        <h4 *ngIf="!order.price.delivery">Delivery: Free</h4>
+        <h4>Items: £{{roundedItems}}</h4>
+
+        <div *ngIf="order.price.vatAmount !== 0">
+          <div *ngIf="roundedVatItems !== roundedItems"> <!-- only display if vatable items are not full amount-->
+            <h4>Vatable items: {{roundedVatItems}}</h4> <!-- In case user has concern over amount of VAT -->
+            <h4>VAT rate: {{order.price.vatRate}}%</h4>
+          </div>
+          <h4>VAT: £{{roundedVat}}</h4>
+        </div>
+
+        <h4 *ngIf="order.price.vatAmount === 0">No VAT applicable</h4>
+        <h4>Total: £{{roundedTotal}}</h4>
+        <hr>
       </div>
     </div>
   </div>
 </section>
+<h1 *ngIf="!order">Error 404: order not found</h1>

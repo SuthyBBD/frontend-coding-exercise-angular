@@ -1,0 +1,12 @@
+@import 'frontend/styles/_variables.scss';
+
+.btn-cp-page {
+  border: 2px solid !important;
+  border-color: $main-text-color;
+  color: $main-text-color;
+
+  &:hover, &:focus, &:active {
+    background-color: grey;
+    box-shadow: none;
+  }
+}

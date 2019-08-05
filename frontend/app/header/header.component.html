@@ -1,0 +1,16 @@
+<nav class="navbar">
+  <a class="navbar-brand" href="#">City Pantry Operations Monitor</a>
+  <div *ngIf="router.url === '/orders'" class="form-inline">
+    <input #searchBox
+           (keyup.enter)="search(searchBox.value)"
+           class="form-control mr-sm-2 cp-search"
+           type="search"
+           placeholder="Search order ID"
+           aria-label="Search">
+    <button (click)="search(searchBox.value)"
+            class="btn btn-outline-success btn-cp-search"
+            type="button">Go</button>
+  </div>
+  <div *ngIf="router.url !== '/orders'">  <button class="btn btn-lg btn-back" routerLink="/orders">Back</button>
+  </div>
+</nav>

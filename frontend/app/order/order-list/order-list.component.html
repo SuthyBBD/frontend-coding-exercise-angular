@@ -1,7 +1,17 @@
-<section id="orderListing">
+<section>
+  <hr>
+  <div style="float: right">
+    <p>Page {{page}} of {{pages}}</p>
+    <button (click)="prev()"
+            class="btn btn-outline-success btn-cp-page"
+            type="button">Prev</button>
+    <button (click)="next()"
+            class="btn btn-outline-success btn-cp-page"
+            type="button">Next</button>
+  </div>
   <div class="row">
     <div class='col-md-3 col-xs-6' *ngFor='let order of orders'>
-      <app-order-list-item [order]="order"></app-order-list-item>
+      <app-order-list-item [page]="page" [order]="order"></app-order-list-item>
     </div>
   </div>
 </section>
