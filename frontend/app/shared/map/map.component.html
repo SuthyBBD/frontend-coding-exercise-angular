@@ -1,0 +1,13 @@
+<agm-map>
+  <section>
+    <!--only show the driver if the order has not been delivered-->
+    <agm-marker *ngIf="!deliveredAt"
+      [latitude]="currentLocation.lat"
+      [longitude]="currentLocation.long"
+    [iconUrl]="'./assets/car.svg'">
+    </agm-marker>
+  <agm-direction
+                 [origin]="{lat: vendorLocation.lat, lng: vendorLocation.long}"
+                 [destination]="{lat: deliveryLocation.lat, lng: deliveryLocation.long}"></agm-direction>
+  </section>
+</agm-map>
