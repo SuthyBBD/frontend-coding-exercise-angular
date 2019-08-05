@@ -36,7 +36,7 @@
 
         <div *ngIf="order.price.vatAmount !== 0">
           <div *ngIf="roundedVatItems !== roundedItems"> <!-- only display if vatable items are not full amount-->
-            <h4>Vatable items: {{roundedVatItems}}</h4> <!-- In case user has concern over amount of VAT -->
+            <h4>Vatable items: £{{roundedVatItems}}</h4> <!-- In case user has concern over amount of VAT -->
             <h4>VAT rate: {{order.price.vatRate}}%</h4>
           </div>
           <h4>VAT: £{{roundedVat}}</h4>
